@@ -21,8 +21,8 @@ public class BaseNeodatis {
       //  m.actualiza_por_nome_xogador("luis", "paco");
         //m.consulta_xogadores();
         //m.xogadoresDeporte("tennis");
-        m.devoltar_equipos_con_xogadores_menos_dunha_cantidade(1600);
-        //m.prueba();
+        //m.devoltar_equipos_con_xogadores_menos_dunha_cantidade(1600);
+        m.prueba(1600);
     }
 
 }
