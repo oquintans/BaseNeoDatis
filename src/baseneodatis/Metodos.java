@@ -130,19 +130,19 @@ public class Metodos {
     public void devoltar_equipos_con_xogadores_menos_dunha_cantidade(int cantidade) {
         odb = ODBFactory.open(ODB_NAME);
         IQuery q = new CriteriaQuery(Player.class, Where.lt("salario", cantidade));
+
         Objects<Player> objs = odb.getObjects(q);
         while (objs.hasNext()) {
             Player p = objs.next();
             System.out.println("Player: " + p.getName());
-
-            IQuery q2 = odb.criteriaQuery(Team.class, Where.contain("players", p));
+            IQuery q2 = null;
+            q2 = odb.criteriaQuery(Team.class, Where.contain("players", p));
             Objects<Team> objs2 = odb.getObjects(q2);
             while (objs2.hasNext()) {
                 Team t = objs2.next();
                 System.out.println("Team: " + t.getName() + "\n");
             }
-            odb.close();
-
         }
+        odb.close();
     }
 }
